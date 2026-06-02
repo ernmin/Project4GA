@@ -1,4 +1,5 @@
 config.py
 __pycache__
 data_extraction/*.json
+data_extraction/english/*.json
 one_price_cycle/*.json
