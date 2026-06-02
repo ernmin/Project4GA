@@ -2,4 +2,11 @@ config.py
 __pycache__
 data_extraction/*.json
 data_extraction/english/*.json
+data_extraction/english_french/*.json
+data_extraction/english_french_chinese/*.json
+data_extraction/english_french_chinese_spanish/*.json
+data_extraction/eng_fr_ch_sp_jp/*.json
+data_extraction/eng_fr_ch_sp_jp_it/*.json
+data_extraction/eng_fr_ch_sp_jp_it_ger/*.json
+data_extraction/eng_fr_ch_sp_jp_it_ger_kor/*.json
 one_price_cycle/*.json
