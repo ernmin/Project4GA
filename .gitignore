@@ -9,5 +9,6 @@ data_extraction/eng_fr_ch_sp_jp/*.json
 data_extraction/eng_fr_ch_sp_jp_it/*.json
 data_extraction/eng_fr_ch_sp_jp_it_ger/*.json
 data_extraction/eng_fr_ch_sp_jp_it_ger_kor/*.json
+EDA/*.json
 data_cleaning/*.json
 one_price_cycle/*.json
