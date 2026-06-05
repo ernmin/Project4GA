@@ -11,5 +11,6 @@ data_extraction/eng_fr_ch_sp_jp_it_ger/*.json
 data_extraction/eng_fr_ch_sp_jp_it_ger_kor/*.json
 EDA/*.json
 prediction_model/*.json
+prediction_query/*.json
 data_cleaning/*.json
 one_price_cycle/*.json
