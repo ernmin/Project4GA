@@ -22,7 +22,7 @@ reg_tree = load("p3_dec_tree_model.joblib")
 col1, col2 = st.columns([2,1])
 col1.title("General Assembly Project 4")
 col2.image("italki_logo.png")
-st.header("Predictive Pricing Model")
+st.header("Are your fees right?")
 st.subheader("",divider=True)
 
 col3, col4 = st.columns([2,1])
@@ -35,37 +35,6 @@ col3.subheader("Let's see how we can do better")
 
 col5, col6 = st.columns([2,1])
 col5.subheader("Predicted Price:")
-
-
-    # Updated list of keys including Serangoon (32 elements)
-keys = [
-    "Ang Mo Kio", "Bedok", "Bishan", "Bukit Batok", "Bukit Merah", 
-    "Bukit Panjang", "Bukit Timah", "Changi", "Choa Chu Kang", "Clementi", 
-    "Downtown core", "Geylang", "Hougang", "Jurong East", "Jurong West", 
-    "Kallang", "Marine Parade", "Novena", "Outram", "Pasir Ris", 
-    "Punggol", "Queenstown", "Rochor", "Sembawang", "Sengkang", 
-    "Serangoon", "Tampines", "Tanglin", "Toa Payoh", "Westland Water Catchment", 
-    "Woodlands", "Yishun"
-]
-
-# Dynamic dictionary comprehension
-num_keys = len(keys)
-planning_area_dict = {
-    key: [1 if i == idx else 0 for i in range(num_keys)] 
-    for idx, key in enumerate(keys)
-}
-
-room_keys = [
-    "1 Room", "2 Room", "3 Room", "4 Room", "5 Room", 
-    "Executive", "Multigeneration"
-]
-
-# Dynamic dictionary comprehension
-num_room_keys = len(room_keys)
-room_type_dict = {
-    key: [1 if i == idx else 0 for i in range(num_room_keys)] 
-    for idx, key in enumerate(room_keys)
-}
 
 with st.form("What is my Price?"):
     pro_or_tutor = col4.selectbox(
@@ -84,7 +53,7 @@ with st.form("What is my Price?"):
     language_taught = st.selectbox("What language do you teach?", language_list_caps)
     language_taught = language_taught.lower()
     trial_sessions = st.number_input("How many trial sessions have you completed?",0,10000)
-    trial_price = st.number_input("What is your current trial price (USD)?",0,120)
+    trial_price = st.number_input("What is your current trial price (USD)?",5,120)
     has_package = st.radio("Do you offer packages?", ("Yes", "No"))
     student_count = st.number_input("How many students have you taught?",1,3000)
     session_count = st.number_input("How many sessions have you conducted?",1,15000)
@@ -108,18 +77,23 @@ with st.form("What is my Price?"):
     else:
         has_package = 0
 
-    if submit:
+    if submit and session_count >= student_count:
         trial_price_cents = round(trial_price/100, 2)
         session_to_student = session_count/student_count
         features_list = [trial_sessions, trial_price_cents, has_package, session_to_student]
         
         if pro_or_tutor == 'Professional':
             pred_price = round(pro_models[language_taught].predict([features_list])[0] / 100, 2)
-            col6.subheader(f"${pred_price}")
+            col6.subheader(f"US${pred_price}")
+            col6.markdown(f"###### Your profit is US${round(pred_price * 0.79, 2)} per session")
+            # col6.subheader(f"{pro_or_tutor}, {pro_models}, {language_taught}")
         else:
             pred_price = round(tutor_models[language_taught].predict([features_list])[0] / 100, 2)
-            col6.subheader(f"${pred_price}")
-        
+            col6.subheader(f"US${pred_price}")
+            col6.markdown(f"###### Your profit is US${round(pred_price * 0.79, 2)} per session")
+            # col6.subheader(f"{pro_or_tutor}, {tutor_models[language_taught]}, {language_taught}")
+    elif submit:
+        col6.markdown("##### The number of students cannot be more than the sessions conducted")
 
         
         
