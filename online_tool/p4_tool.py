@@ -12,9 +12,6 @@ for language in language_list:
     pro_models[language] = load(language_pro_str)
     tutor_models[language] = load(language_tutor_str)
 
-loaded_lr = load("p3.linear.regression.model.joblib")
-reg_tree = load("p3_dec_tree_model.joblib")
-
 col1, col2 = st.columns([2,1])
 col1.title("General Assembly Project 4")
 col2.image("italki_logo.png")
@@ -55,18 +52,6 @@ with st.form("What is my Price?"):
     session_count = st.number_input("How many sessions have you conducted?",1,15000)
 
     submit = st.form_submit_button("Confirm Preferences")
-
-    # if submit:
-        # pref_list = [floor_mid,lease_age,dist_mrt,dist_bus,dist_pri]
-        
-        # features = pref_list
-        # # b = len(features)
-        # # col6.subheader(f"{features}")
-        # # col6.subheader(f"1: {len(pref_list)}, 2: {len(planning_area_dict[planning_area])}, 3:{len(room_type_dict[flat_type])} ")
-        # if pro_or_tutor == 'Professional':
-        #     col6.subheader(f"${round(loaded_lr.predict([features])[0], 2)}")
-        # else:
-        #     col6.subheader(f"${round(reg_tree.predict([features])[0],2)}")
 
     if has_package == 'Yes':
         has_package = 1
