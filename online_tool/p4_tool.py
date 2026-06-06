@@ -1,9 +1,5 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-from sklearn.tree import DecisionTreeRegressor
 from joblib import load
-from joblib import dump
 
 language_list = ['english', 'chinese', 'french', 'spanish', 'italian', 'german', 'korean', 'japanese']
 language_list_caps = []
