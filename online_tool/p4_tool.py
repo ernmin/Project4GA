@@ -7,8 +7,8 @@ pro_models = {}
 tutor_models = {}
 for language in language_list:
     language_list_caps.append(language.capitalize())
-    language_tutor_str = f'{language}_tutor.joblib'
-    language_pro_str = f'{language}_tutor.joblib'
+    language_tutor_str = f'./{language}_tutor.joblib'
+    language_pro_str = f'./{language}_tutor.joblib'
     pro_models[language] = load(language_pro_str)
     tutor_models[language] = load(language_tutor_str)
 
