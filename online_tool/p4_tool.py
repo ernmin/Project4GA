@@ -17,7 +17,7 @@ for language in language_list:
 
 col1, col2 = st.columns([2,1])
 col1.title("General Assembly Project 4")
-col2.image("italki_logo.png")
+col2.image(str(THIS_DIR / "italki_logo.png"))
 st.header("Are your fees right?")
 st.subheader("",divider=True)
 
