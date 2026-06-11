@@ -1,5 +1,8 @@
 import streamlit as st
 from joblib import load
+from pathlib import Path
+
+THIS_DIR = Path(__file__).parent
 
 language_list = ['english', 'chinese', 'french', 'spanish', 'italian', 'german', 'korean', 'japanese']
 language_list_caps = []
@@ -7,8 +10,8 @@ pro_models = {}
 tutor_models = {}
 for language in language_list:
     language_list_caps.append(language.capitalize())
-    language_tutor_str = f'./{language}_tutor.joblib'
-    language_pro_str = f'./{language}_tutor.joblib'
+    language_tutor_str = str(THIS_DIR / f'{language}_tutor.joblib')
+    language_pro_str = str(THIS_DIR / f'{language}_pro.joblib')
     pro_models[language] = load(language_pro_str)
     tutor_models[language] = load(language_tutor_str)
 
