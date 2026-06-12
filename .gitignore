@@ -16,3 +16,4 @@ Tableau_and_csv
 other_files
 data_cleaning/*.json
 one_price_cycle/*.json
+SQLite_database/*.db
