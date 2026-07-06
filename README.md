@@ -43,21 +43,21 @@ For the Tableau Story and Dashboard!
 
 This project is built upon a robust and widely-adopted data science stack, designed for efficiency, flexibility, and scalability.
 
-| Technology      | Purpose                                            | Key Benefit                                        |
-| :-------------- | :------------------------------------------------- | :------------------------------------------------- |
-| **Python**      | Core programming language                          | Versatility, extensive data science ecosystem      |
-| **Jupyter Notebook** | Interactive development environment                | Iterative analysis, code, and visualization sharing |
-| **Pandas**      | Data manipulation and analysis                     | High-performance, easy-to-use data structures      |
-| **NumPy**       | Numerical computing with arrays                    | Efficient array operations, mathematical functions |
-| **Scikit-learn**| Machine Learning algorithms                        | Comprehensive ML tools, ease of use                |
-| **SQLite**      | Lightweight, serverless relational database        | Simple setup, portable data storage                |
-| **Matplotlib/Seaborn** | Data visualization libraries                       | High-quality, customizable plots for EDA           |
+| Technology      | Purpose                                            |
+| :-------------- | :------------------------------------------------- |
+| **Python**      | Core programming language                          |
+| **Jupyter Notebook** | Interactive development environment                |
+| **Pandas**      | Data manipulation and analysis                     |
+| **NumPy**       | Numerical computing with arrays                    |
+| **Scikit-learn**| Machine Learning algorithms                        |
+| **SQLite**      | Lightweight, serverless relational database        |
+| **Seaborn/Plotly** | Data visualization libraries                       |
 
 ### Directory Structure
 
 ```
 📁 Project4GA/
-├── 📁 .devcontainer/                   # Development container configuration
+├── 📁 .devcontainer/                   # Development container configuration for the stream lit application
 ├── 📁 data_cleaning/                   # Scripts and notebooks for data preprocessing
 │   └── 📄 data_cleaning.ipynb          # Notebook for cleaning raw data from the API
 ├── 📁 data_extraction/                 # Scripts for extracting data from sources
@@ -78,8 +78,7 @@ This project is built upon a robust and widely-adopted data science stack, desig
 ├── 📄 .gitignore                       # Specifies intentionally untracked files to ignore
 ├── 📄 italki_price_old.ipynb           # Legacy notebook for iTalki API call
 ├── 📄 one_teacher.ipynb                # Notebook for specific teacher-centric analysis
-├── 📄 README.md                        # Project documentation (this file)
-└── 📄 requirements.txt                 # Project dependencies
+└── 📄 README.md                        # Project documentation (this file)
 ```
 
 ---
@@ -103,7 +102,7 @@ Ensure you have the following installed:
     ```bash
     pip install -r requirements.txt
     ```
-    *(If `requirements.txt` is missing, you may need to create one by listing the required packages like `pandas`, `numpy`, `scikit-learn`, `jupyter`, `matplotlib`, `seaborn`.)*
+    *(If `requirements.txt` is missing, you may need to create one by listing the required packages like `pandas`, `numpy`, `scikit-learn`, `jupyter`, `matplotlib`, `seaborn`, `plotly`.)*
 
 ### Environment Configuration
 
